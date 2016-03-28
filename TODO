@@ -1,0 +1,7 @@
+Basher Tasks ToDo:
+- Handle "="
+- Handle -r with no arguments followed by , say, -o
+- Terminal eye-candy
+- File input
+- Password input
+- Table output
