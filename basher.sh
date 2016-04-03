@@ -12,14 +12,7 @@ APP=`basename $0`
 # Make sure there is a file called VERSION with the 
 # version information about the script
 get_version () {
-    FILE=VERSION
-    k=1
-    echo
-    while read line;do
-        echo "$line"
-        ((k++))
-    done < $FILE
-    echo
+    cat VERSION
 }
 
 # Put your command-line help here
