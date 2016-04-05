@@ -17,9 +17,12 @@ get_version () {
 
 # Put your command-line help here
 usage () {
+    get_version
     echo -e "\n$APP : Boilerplate code to start writing bash scripts similar to most Linux command-line utilities"
     echo -e "Usage :"
     echo -e "\t$APP [-h|--help] [-v|--version] [-r|--required 123] [-o|--optional [124]]"
+    echo -e "\t$APP -r|--required <argument>"
+    echo -e "\t$APP -o|--optional [optional_argument]"
     echo -e "where,"
     echo -e "\t-r, --required <arg> : If this flag is set, an argument is mandatory"
     echo -e "\t-o, --option [arg] : If this flag is set, an argument is optional"
