@@ -9,7 +9,7 @@ MIN_ARGS=1
 APP=`basename $0`
 
 # Function to get the version of the script
-# Make sure there is a file called VERSION with the 
+# Make sure there is a file called VERSION with the
 # version information about the script
 get_version () {
     cat VERSION
@@ -57,21 +57,40 @@ ARG_REQUIRED=""
 
 while true; do
     case "$1" in
-        -v | --version) VERSION=true; shift;;
-        -h | --help) HELP=true; shift;;
+        -v | --version)
+            VERSION=true
+            break;;
+        -h | --help)
+            HELP=true
+            break;;
         -o | --optional)
             case "$2" in
-                "") ARG_OPTIONAL=666; shift; shift;;
-                *) ARG_OPTIONAL=$2; shift; shift;;
+                "")
+                    ARG_OPTIONAL=666
+                    shift
+                    shift;;
+                *)
+                    ARG_OPTIONAL=$2
+                    shift
+                    shift;;
             esac ;;
         -r | --required)
             case "$2" in
-                "") echo "Argument Missing"; exit 1; break;;
-                *) ARG_REQUIRED=$2; shift; shift;;
+                "")
+                    echo "Argument Missing"
+                    exit 1
+                    break;;
+                *)
+                    ARG_REQUIRED=$2
+                    shift
+                    shift;;
             esac
             ;;
-        -- ) shift; break;;
-        *)  break;;
+        --)
+            shift
+            break;;
+        *)
+            break;;
     esac
 done
 
@@ -89,7 +108,7 @@ if [ -z $ARG_OPTIONAL ];
 then
     echo "Optional Argument not set" > /dev/null
 else
-    echo "Optional Argument is set as $ARG_OPTIONAL"
+    echo -e "Optional Argument is set as $ARG_OPTIONAL"
 fi
 
 if [ -z $ARG_REQUIRED ];
@@ -100,4 +119,3 @@ else
 fi
 
 exit 0
-
