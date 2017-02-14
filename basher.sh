@@ -12,7 +12,9 @@ APP=`basename $0`
 # Make sure there is a file called VERSION with the
 # version information about the script
 get_version () {
+    echo -e "\033[34m"
     cat VERSION
+    echo -e "\033[0m"
 }
 
 # Put your command-line help here
